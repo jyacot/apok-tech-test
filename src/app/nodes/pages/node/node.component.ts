@@ -8,7 +8,6 @@ import { LocaleService } from 'src/app/shared/services/locale.service';
 import { ToastrService } from 'ngx-toastr';
 import { Location } from '@angular/common';
 import {
-  faRemoveFormat,
   faPlus,
   faArrowLeft,
   faTrash,

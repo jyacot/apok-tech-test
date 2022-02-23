@@ -1,6 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
 
-declare var feather: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +8,5 @@ declare var feather: any;
 export class AppComponent implements AfterViewInit {
   title = 'apok-tech-test';
 
-  ngAfterViewInit() {
-    feather.replace();
-  }
+  ngAfterViewInit() {}
 }

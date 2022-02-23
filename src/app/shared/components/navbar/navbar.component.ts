@@ -4,10 +4,7 @@ import { Observable } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { Locales } from '../../interfaces/locales.type';
 import { LocaleService } from '../../services/locale.service';
-import {
-  faArrowRight,
-  faArrowAltCircleRight,
-} from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',

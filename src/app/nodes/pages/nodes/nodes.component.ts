@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Node } from 'src/app/shared/interfaces/node.type';
 import { LocaleService } from 'src/app/shared/services/locale.service';
 import { NodesService } from '../../services/nodes.service';
-import { catchError, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-nodes',
