@@ -1,0 +1,20 @@
+<div class="w-full flex flex-row justify-end align-middle x-2 py-1 border-b-2">
+  <div [formGroup]="form">
+    <select
+      name="locale"
+      id="locale"
+      formControlName="locale"
+      class="px-3 py-2 shadow-sm bg-yellow-500 text-white font-bold"
+    >
+      <option [value]="locale.locale" *ngFor="let locale of locales$ | async">
+        {{ locale.label }}
+      </option>
+    </select>
+  </div>
+  <div
+    class="border flex flex-col justify-center mx-2 p-1 bg-red-400 text-white cursor-pointer"
+    [routerLink]="['/auth/login']"
+  >
+    <i data-feather="log-out"></i>
+  </div>
+</div>

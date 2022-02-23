@@ -1,0 +1,10 @@
+<!-- <app-navbar></app-navbar> -->
+<h2>Parent Nodes</h2>
+<div class="parent_list">
+  <app-node-card
+    *ngFor="let node of parentNodes$ | async"
+    [routerLink]="[node.id]"
+    [id]="node.id"
+  >
+  </app-node-card>
+</div>

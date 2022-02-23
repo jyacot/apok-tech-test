@@ -1,0 +1,32 @@
+<div class="parent-card" *ngIf="node$ | async as parentNode">
+  <div
+    class="title-container"
+    *ngIf="parentNode.translation?.length; else noTranslation"
+  >
+    <h3 *ngFor="let translation of parentNode.translation">
+      Node: {{ translation.title | uppercase }}
+    </h3>
+  </div>
+  <ng-template #noTranslation>
+    <h3>Node: {{ parentNode.title | uppercase }}</h3>
+  </ng-template>
+</div>
+<ng-container *ngIf="childs$ | async as childs">
+  <div class="buttons">
+    <button class="btn primary icon" [routerLink]="['newChild']">+</button>
+    <button
+      class="btn danger icon"
+      *ngIf="childs.length === 0"
+      (click)="delete()"
+    >
+      -
+    </button>
+  </div>
+  <div class="child-container" *ngIf="childs.length; else noChilds">
+    <app-node-card *ngFor="let child of childs" [id]="child.id"></app-node-card>
+  </div>
+
+  <ng-template #noChilds>
+    <div class="child-container flex flex-col gap-2">No nodes</div>
+  </ng-template>
+</ng-container>

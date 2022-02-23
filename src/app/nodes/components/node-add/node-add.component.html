@@ -1,0 +1,19 @@
+<div class="container">
+  <form [formGroup]="form">
+    <div>
+      <label for="locale"> Locales for Node </label>
+      <select
+        id="locale"
+        multiple
+        formControlName="locales"
+        class="block w-full p-3 border border-gray-300 rounded-sm cursor-pointer focus:outline-none"
+      >
+        <option [value]="locale.locale" *ngFor="let locale of locales$ | async">
+          {{ locale.locale }}
+        </option>
+      </select>
+      <button class="btn primary" (click)="add()">SAVE</button>
+    </div>
+  </form>
+  {{ form.value | json }}
+</div>

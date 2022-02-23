@@ -1,0 +1,24 @@
+<div
+  class="parent flex-1 flex flex-row justify-between mx-2 my-3 p-4 border shadow-md min-w-max cursor-pointer max-w-md"
+  *ngIf="node$ | async as n"
+  [routerLink]="['/nodes', n.id]"
+>
+  <div
+    class="title-container"
+    *ngIf="n.translation?.length; else noTranslation"
+  >
+    <h3 *ngFor="let translation of n.translation">
+      Node: {{ translation.title | uppercase }}
+    </h3>
+  </div>
+  <ng-template #noTranslation>
+    <h3>Node: {{ n.title | uppercase }}</h3>
+  </ng-template>
+  >
+</div>
+<!-- <div class="child-container">
+<div class="child" *ngFor="let child of childs$ | async">
+{{ child | json }}
+</div>
+</div>
+</div> -->

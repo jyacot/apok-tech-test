@@ -2,3 +2,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply px-3 py-2 text-white font-bold max-w-max m-2 rounded-sm text-lg;
+  &.primary {
+    @apply bg-yellow-500;
+  }
+  &.secondary {
+    @apply bg-green-600;
+  }
+  &.danger {
+    @apply bg-red-500;
+  }
+  &:disabled {
+    @apply bg-gray-500;
+  }
+  &.icon {
+    @apply px-2 py-0;
+  }
+}
