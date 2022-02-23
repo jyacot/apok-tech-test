@@ -22,7 +22,7 @@ export class NodeAddComponent implements OnInit {
     private fb: FormBuilder,
     private nodeService: NodesService,
     private toast: ToastrService,
-    private location: Location,
+    public location: Location,
     private activatedRoute: ActivatedRoute
   ) {
     this.form = this.fb.group({

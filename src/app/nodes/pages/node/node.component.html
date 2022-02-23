@@ -1,27 +1,44 @@
+<button class="btn icon primary" (click)="back()">
+  <i data-feather="circle"></i>
+  Back
+</button>
+
 <div class="parent-card" *ngIf="node$ | async as parentNode">
   <div
     class="title-container"
     *ngIf="parentNode.translation?.length; else noTranslation"
   >
-    <h3 *ngFor="let translation of parentNode.translation">
-      Node: {{ translation.title | uppercase }}
-    </h3>
+    <div
+      *ngFor="let translation of parentNode.translation"
+      class="flex flex-col text-gray-500"
+    >
+      Node:
+      <span class="text-3xl font-bold text-gray-700 border-b-2">
+        {{ translation.title | uppercase }}
+      </span>
+    </div>
   </div>
   <ng-template #noTranslation>
-    <h3>Node: {{ parentNode.title | uppercase }}</h3>
+    <div class="flex flex-col text-gray-500">
+      Node:
+      <span class="text-3xl font-bold text-gray-700 border-b-2">
+        {{ parentNode.title | uppercase }}
+      </span>
+    </div>
   </ng-template>
 </div>
 <ng-container *ngIf="childs$ | async as childs">
-  <div class="buttons">
-    <button class="btn primary icon" [routerLink]="['newChild']">+</button>
+  <div class="buttons mb-2">
+    <button class="btn primary icon" [routerLink]="['newChild']">+ ADD</button>
     <button
       class="btn danger icon"
       *ngIf="childs.length === 0"
       (click)="delete()"
     >
-      -
+      - REMOVE
     </button>
   </div>
+  <span class="text-gray-500 pb-2">Child Nodes: </span>
   <div class="child-container" *ngIf="childs.length; else noChilds">
     <app-node-card *ngFor="let child of childs" [id]="child.id"></app-node-card>
   </div>
