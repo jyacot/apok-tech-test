@@ -7,6 +7,12 @@ import { catchError, switchMap, tap } from 'rxjs/operators';
 import { LocaleService } from 'src/app/shared/services/locale.service';
 import { ToastrService } from 'ngx-toastr';
 import { Location } from '@angular/common';
+import {
+  faRemoveFormat,
+  faPlus,
+  faArrowLeft,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-node',
@@ -17,6 +23,10 @@ export class NodeComponent implements OnInit {
   node$: BehaviorSubject<DetailNode | null> =
     new BehaviorSubject<DetailNode | null>(null);
   childs$: Observable<Node[]> = new Observable();
+
+  plusIcon = faPlus;
+  removeIcon = faTrash;
+  backIcon = faArrowLeft;
   constructor(
     private activatedRoute: ActivatedRoute,
     private nodeService: NodesService,

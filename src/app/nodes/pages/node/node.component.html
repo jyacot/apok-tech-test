@@ -1,5 +1,5 @@
 <button class="btn icon primary" (click)="back()">
-  <i data-feather="circle"></i>
+  <fa-icon [icon]="backIcon"></fa-icon>
   Back
 </button>
 
@@ -29,13 +29,15 @@
 </div>
 <ng-container *ngIf="childs$ | async as childs">
   <div class="buttons mb-2">
-    <button class="btn primary icon" [routerLink]="['newChild']">+ ADD</button>
+    <button class="btn primary icon" [routerLink]="['newChild']">
+      <fa-icon [icon]="plusIcon"></fa-icon> ADD
+    </button>
     <button
       class="btn danger icon"
       *ngIf="childs.length === 0"
       (click)="delete()"
     >
-      - REMOVE
+      <fa-icon [icon]="removeIcon"></fa-icon> REMOVE
     </button>
   </div>
   <span class="text-gray-500 pb-2">Child Nodes: </span>

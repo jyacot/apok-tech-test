@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LocaleService } from './services/locale.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    FontAwesomeModule,
   ],
   exports: [NavbarComponent],
   providers: [LocaleService],

@@ -9,6 +9,7 @@ import { NodeComponent } from './pages/node/node.component';
 import { NodeCardComponent } from './components/node-card/node-card.component';
 import { NodeAddComponent } from './components/node-add/node-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [NodesService],
 })

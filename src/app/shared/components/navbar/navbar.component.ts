@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { Locales } from '../../interfaces/locales.type';
 import { LocaleService } from '../../services/locale.service';
+import {
+  faArrowRight,
+  faArrowAltCircleRight,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +15,7 @@ import { LocaleService } from '../../services/locale.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  exitIcon = faArrowRight;
   locales$: Observable<Locales[]>;
   form: FormGroup;
   constructor(private localeService: LocaleService, private fb: FormBuilder) {
