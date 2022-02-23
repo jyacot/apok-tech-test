@@ -21,3 +21,7 @@
     @apply px-2 py-0;
   }
 }
+
+.loading {
+  @apply animate-ping h-2 w-full bg-green-300;
+}

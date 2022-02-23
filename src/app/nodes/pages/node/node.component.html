@@ -2,8 +2,10 @@
   <fa-icon [icon]="backIcon"></fa-icon>
   Back
 </button>
-
-<div class="parent-card" *ngIf="node$ | async as parentNode">
+<ng-template #noParent>
+  <div class="loading"></div>
+</ng-template>
+<div class="parent-card" *ngIf="node$ | async as parentNode; else noParent">
   <div
     class="title-container"
     *ngIf="parentNode.translation?.length; else noTranslation"
@@ -27,7 +29,10 @@
     </div>
   </ng-template>
 </div>
-<ng-container *ngIf="childs$ | async as childs">
+<ng-template #loadingChild>
+  <div class="loading"></div>
+</ng-template>
+<ng-container *ngIf="childs$ | async as childs; else loadingChild">
   <div class="buttons mb-2">
     <button class="btn primary icon" [routerLink]="['newChild']">
       <fa-icon [icon]="plusIcon"></fa-icon> ADD

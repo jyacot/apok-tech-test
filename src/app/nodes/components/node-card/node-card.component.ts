@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { LocaleService } from 'src/app/shared/services/locale.service';
-import { DetailNode, Node } from '../../../shared/interfaces/node.type';
+import { DetailNode } from '../../../shared/interfaces/node.type';
 import { NodesService } from '../../services/nodes.service';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 @Component({

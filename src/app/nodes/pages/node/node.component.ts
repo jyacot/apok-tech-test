@@ -42,15 +42,20 @@ export class NodeComponent implements OnInit {
     this.activatedRoute.params.subscribe(({ id }) => {
       this.childs$ = this.localeService.localeSelected$.pipe(
         tap((locale) => {
-          this.nodeService.getNode({ id, locale }).subscribe((r) => {
-            this.node$.next(r);
+          this.nodeService.getNode({ id, locale }).subscribe({
+            next: (r) => {
+              this.node$.next(r);
+            },
+            error: (e) => {
+              this.toast.error(e.error.message);
+            },
           });
         }),
         switchMap((locale) => {
           return locale
             ? this.nodeService.getAllChildNodes({ locale, parent: id }).pipe(
                 catchError((error) => {
-                  // this.toast.error(error.error.message);
+                  this.toast.error(error.error.message);
                   return of([]);
                 })
               )
